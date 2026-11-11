@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Форма демонстрационной заявки на посещение городского события."
+    />
+    <meta name="theme-color" content="#f8f6f0" />
+    <title>Заявка · Вне дома</title>
+    <link rel="icon" href="images/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/events.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top" data-version="bootstrap">
+    <a class="skip-link" href="#main">К содержимому</a>
+    <header class="site-header">
+      <nav class="site-nav navbar navbar-expand-md" aria-label="Основное меню">
+        <div class="shell container">
+          <a
+            href="index.html"
+            class="brand navbar-brand"
+            aria-label="Вне дома — главная"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          ><button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main-nav"
+            aria-controls="main-nav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="main-nav" class="collapse navbar-collapse">
+            <div class="site-nav__links navbar-nav">
+              <a class="site-nav__link nav-link" href="index.html">Главная</a
+              ><a class="site-nav__link nav-link" href="catalog.html">Каталог</a
+              ><a
+                class="site-nav__link nav-link"
+                href="order.html"
+                aria-current="page"
+                >Заявка</a
+              ><a class="site-nav__link nav-link" href="contacts.html"
+                >Контакты</a
+              >
+            </div>
+          </div>
+          <span class="site-nav__city"
+            ><span aria-hidden="true">◎</span> Москва</span
+          >
+        </div>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="shell page">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li aria-current="page">Заявка</li>
+          </ol>
+        </nav>
+        <header class="page-heading">
+          <p class="kicker">Оформление</p>
+          <h1>Заявка на посещение</h1>
+          <p>Выбери событие и заполни контактные поля.</p>
+        </header>
+        <section class="form-panel" aria-label="Форма заявки">
+          <form class="request-form" data-form="order">
+            <div class="form-grid">
+              <div class="field field--wide">
+                <label class="field__label form-label" for="order-event"
+                  >Мероприятие</label
+                ><select
+                  class="field__input form-select"
+                  id="order-event"
+                  name="event"
+                  required
+                >
+                  <option value="">Выберите мероприятие</option>
+                  <option value="blue-hour">Синий час</option>
+                  <option value="between-lines">Между строк</option>
+                  <option value="new-optics">Новая оптика</option>
+                  <option value="clay">Форма из глины</option>
+                  <option value="film">Кино после заката</option>
+                  <option value="market">Городской маркет</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field__label form-label" for="order-name"
+                  >Имя</label
+                ><input
+                  class="field__input form-control"
+                  id="order-name"
+                  name="name"
+                  type="text"
+                  autocomplete="given-name"
+                  maxlength="80"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label class="field__label form-label" for="order-email"
+                  >Электронная почта</label
+                ><input
+                  class="field__input form-control"
+                  id="order-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  maxlength="120"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label class="field__label form-label" for="order-phone"
+                  >Телефон</label
+                ><input
+                  class="field__input form-control"
+                  id="order-phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  minlength="7"
+                  maxlength="25"
+                  placeholder="+7 900 000-00-00"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label class="field__label form-label" for="order-date"
+                  >Дата мероприятия</label
+                ><input
+                  class="field__input form-control"
+                  id="order-date"
+                  name="date"
+                  type="date"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label class="form-label" for="order-tickets"
+                  >Количество билетов</label
+                >
+                <div class="input-group">
+                  <input
+                    class="form-control"
+                    id="order-tickets"
+                    name="tickets"
+                    type="number"
+                    min="1"
+                    max="8"
+                    value="1"
+                    required
+                  /><span class="input-group-text">шт.</span>
+                </div>
+              </div>
+              <div class="field field--wide">
+                <label class="field__label form-label" for="order-comment"
+                  >Комментарий (необязательно)</label
+                ><textarea
+                  class="field__input form-control"
+                  name="comment"
+                  id="order-comment"
+                  maxlength="600"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <div class="consent form-check">
+              <input
+                class="consent__input form-check-input"
+                type="checkbox"
+                id="order-consent"
+                name="consent"
+                required
+              /><label
+                class="consent__label form-check-label"
+                for="order-consent"
+                >Согласен на обработку данных в рамках демонстрации</label
+              >
+            </div>
+            <p class="request-form__note">
+              Демонстрационная форма. Данные остаются в браузере и не
+              отправляются.
+            </p>
+            <button class="button btn btn-primary" type="submit" disabled>
+              Проверить заявку
+            </button>
+            <p
+              class="request-form__status alert alert-success"
+              role="status"
+              tabindex="-1"
+              hidden
+            ></p>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div>
+          <a class="brand brand--footer" href="index.html"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          >
+          <p>Демонстрационная городская афиша</p>
+        </div>
+        <div class="site-footer__links">
+          <a href="catalog.html">Каталог</a><a href="contacts.html">Контакты</a>
+        </div>
+        <p class="site-footer__credit">Учебный проект<br />Мацейко А. В.</p>
+      </div>
+    </footer>
+    <a class="back-top" href="#top" aria-label="Наверх" title="Наверх">↑</a>
+  </body>
+</html>
