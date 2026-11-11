@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Фотографии, программа, площадка и варианты билетов выбранного мероприятия."
+    />
+    <meta name="theme-color" content="#f8f6f0" />
+    <title>Мероприятие · Вне дома</title>
+    <link rel="icon" href="images/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/events.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top" data-version="bootstrap">
+    <a class="skip-link" href="#main">К содержимому</a>
+    <header class="site-header">
+      <nav class="site-nav navbar navbar-expand-md" aria-label="Основное меню">
+        <div class="shell container">
+          <a
+            href="index.html"
+            class="brand navbar-brand"
+            aria-label="Вне дома — главная"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          ><button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main-nav"
+            aria-controls="main-nav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="main-nav" class="collapse navbar-collapse">
+            <div class="site-nav__links navbar-nav">
+              <a class="site-nav__link nav-link" href="index.html">Главная</a
+              ><a
+                class="site-nav__link nav-link"
+                href="catalog.html"
+                aria-current="location"
+                >Каталог</a
+              ><a class="site-nav__link nav-link" href="order.html">Заявка</a
+              ><a class="site-nav__link nav-link" href="contacts.html"
+                >Контакты</a
+              >
+            </div>
+          </div>
+          <span class="site-nav__city"
+            ><span aria-hidden="true">◎</span> Москва</span
+          >
+        </div>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="shell page" id="event-page">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li aria-current="page">Мероприятие</li>
+          </ol>
+        </nav>
+        <article class="event-detail">
+          <header class="page-heading">
+            <p class="kicker" id="event-category">Концерты</p>
+            <h1 id="event-title">Синий час</h1>
+            <p id="event-subtitle">13 марта · 20:00 · Сцена «Контур»</p>
+          </header>
+          <div class="event-detail__layout row g-4">
+            <div class="event-detail__main col-lg-8">
+              <img
+                class="event-detail__image"
+                id="event-image"
+                src="images/concert.jpg"
+                alt="Зрители перед сценой в синем свете"
+                width="1000"
+                height="650"
+              />
+              <section
+                class="event-detail__section"
+                aria-labelledby="about-event"
+              >
+                <h2 id="about-event">О мероприятии</h2>
+                <p id="event-description">
+                  Вечер живой музыки на стыке инди и электроники. Два коротких
+                  сета и финальный совместный джем.
+                </p>
+                <img
+                  class="event-detail__extra"
+                  id="event-extra-image"
+                  src="images/concert-extra.jpg"
+                  alt="Свет прожекторов над концертной площадкой"
+                  width="800"
+                  height="520"
+                  loading="lazy"
+                />
+              </section>
+              <section
+                class="event-detail__section"
+                aria-labelledby="event-tickets"
+              >
+                <h2 id="event-tickets">Варианты билетов</h2>
+                <div class="ticket-table table-responsive">
+                  <table
+                    class="ticket-table__table table"
+                    aria-label="Варианты билетов"
+                  >
+                    <thead>
+                      <tr>
+                        <th scope="col">Тип</th>
+                        <th scope="col">Условия</th>
+                        <th scope="col">Цена</th>
+                      </tr>
+                    </thead>
+                    <tbody id="ticket-rows">
+                      <tr>
+                        <th scope="row">Стандарт</th>
+                        <td>Вход на мероприятие</td>
+                        <td>1 800 ₽</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Приоритет</th>
+                        <td>Места ближе к сцене</td>
+                        <td>2 400 ₽</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+            <aside
+              class="event-summary col-lg-4"
+              aria-labelledby="summary-title"
+            >
+              <div class="event-summary__panel">
+                <h2 id="summary-title">Когда и где</h2>
+                <dl>
+                  <dt>Начало</dt>
+                  <dd id="event-start">13 марта, 20:00</dd>
+                  <dt>Площадка</dt>
+                  <dd id="event-venue">Москва, площадка «Контур»</dd>
+                  <dt>Продолжительность</dt>
+                  <dd id="event-duration">1 час 40 минут</dd>
+                  <dt>Возраст</dt>
+                  <dd id="event-age">16+</dd>
+                </dl>
+                <p class="event-summary__price" id="event-price">от 1 800 ₽</p>
+                <a
+                  class="button btn btn-primary"
+                  href="order.html?event=blue-hour"
+                  id="event-order"
+                  >Оставить заявку</a
+                ><button
+                  class="button button--secondary btn btn-outline-primary"
+                  type="button"
+                  id="event-quick"
+                  data-open-order="blue-hour"
+                >
+                  Быстрая заявка
+                </button>
+              </div>
+            </aside>
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div>
+          <a class="brand brand--footer" href="index.html"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          >
+          <p>Демонстрационная городская афиша</p>
+        </div>
+        <div class="site-footer__links">
+          <a href="catalog.html">Каталог</a><a href="contacts.html">Контакты</a>
+        </div>
+        <p class="site-footer__credit">Учебный проект<br />Мацейко А. В.</p>
+      </div>
+    </footer>
+    <a class="back-top" href="#top" aria-label="Наверх" title="Наверх">↑</a>
+    <div
+      class="modal fade"
+      id="order-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-4" id="modal-title">
+              Заявка на мероприятие
+            </h2>
+            <button
+              class="btn-close"
+              type="button"
+              data-bs-dismiss="modal"
+              aria-label="Закрыть"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="request-form" data-form="quick">
+              <div class="form-grid">
+                <div class="field field--wide">
+                  <label class="field__label form-label" for="quick-event"
+                    >Мероприятие</label
+                  ><select
+                    class="field__input form-select"
+                    id="quick-event"
+                    name="event"
+                    required
+                  >
+                    <option value="">Выберите мероприятие</option>
+                    <option value="blue-hour">Синий час</option>
+                    <option value="between-lines">Между строк</option>
+                    <option value="new-optics">Новая оптика</option>
+                    <option value="clay">Форма из глины</option>
+                    <option value="film">Кино после заката</option>
+                    <option value="market">Городской маркет</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-name"
+                    >Имя</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-name"
+                    name="name"
+                    type="text"
+                    autocomplete="given-name"
+                    maxlength="80"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-email"
+                    >Электронная почта</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    maxlength="120"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-phone"
+                    >Телефон</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    minlength="7"
+                    maxlength="25"
+                    placeholder="+7 900 000-00-00"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-date"
+                    >Дата мероприятия</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-date"
+                    name="date"
+                    type="date"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="form-label" for="quick-tickets"
+                    >Количество билетов</label
+                  >
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      id="quick-tickets"
+                      name="tickets"
+                      type="number"
+                      min="1"
+                      max="8"
+                      value="1"
+                      required
+                    /><span class="input-group-text">шт.</span>
+                  </div>
+                </div>
+                <div class="field field--wide">
+                  <label class="field__label form-label" for="quick-comment"
+                    >Комментарий (необязательно)</label
+                  ><textarea
+                    class="field__input form-control"
+                    name="comment"
+                    id="quick-comment"
+                    maxlength="600"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="consent form-check">
+                <input
+                  class="consent__input form-check-input"
+                  type="checkbox"
+                  id="quick-consent"
+                  name="consent"
+                  required
+                /><label
+                  class="consent__label form-check-label"
+                  for="quick-consent"
+                  >Согласен на обработку данных в рамках демонстрации</label
+                >
+              </div>
+              <p class="request-form__note">
+                Демонстрационная форма. Данные остаются в браузере и не
+                отправляются.
+              </p>
+              <button class="button btn btn-primary" type="submit" disabled>
+                Проверить заявку
+              </button>
+              <p
+                class="request-form__status alert alert-success"
+                role="status"
+                tabindex="-1"
+                hidden
+              ></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Каталог городских мероприятий с фильтрами по категории, дате и стоимости."
+    />
+    <meta name="theme-color" content="#f8f6f0" />
+    <title>Каталог · Вне дома</title>
+    <link rel="icon" href="images/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/events.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top" data-version="bootstrap">
+    <a class="skip-link" href="#main">К содержимому</a>
+    <header class="site-header">
+      <nav class="site-nav navbar navbar-expand-md" aria-label="Основное меню">
+        <div class="shell container">
+          <a
+            href="index.html"
+            class="brand navbar-brand"
+            aria-label="Вне дома — главная"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          ><button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main-nav"
+            aria-controls="main-nav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="main-nav" class="collapse navbar-collapse">
+            <div class="site-nav__links navbar-nav">
+              <a class="site-nav__link nav-link" href="index.html">Главная</a
+              ><a
+                class="site-nav__link nav-link"
+                href="catalog.html"
+                aria-current="page"
+                >Каталог</a
+              ><a class="site-nav__link nav-link" href="order.html">Заявка</a
+              ><a class="site-nav__link nav-link" href="contacts.html"
+                >Контакты</a
+              >
+            </div>
+          </div>
+          <span class="site-nav__city"
+            ><span aria-hidden="true">◎</span> Москва</span
+          >
+        </div>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="shell page">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li aria-current="page">Каталог</li>
+          </ol>
+        </nav>
+        <header class="page-heading">
+          <p class="kicker">Городская афиша</p>
+          <h1>Каталог событий</h1>
+          <p>Выбери, куда пойти в Москве.</p>
+        </header>
+        <div class="catalog-layout row g-4">
+          <aside class="filters col-lg-3" aria-labelledby="filters-title">
+            <form class="filters__form" id="filters">
+              <h2 id="filters-title">Фильтры</h2>
+              <div class="field">
+                <label for="search">Название</label
+                ><input
+                  class="field__input form-control"
+                  id="search"
+                  name="search"
+                  type="search"
+                  placeholder="Найти событие"
+                />
+              </div>
+              <div class="field">
+                <label for="category">Категория</label
+                ><select
+                  class="field__input form-select"
+                  id="category"
+                  name="category"
+                >
+                  <option value="">Все категории</option>
+                  <option value="Концерты">Концерты</option>
+                  <option value="Театр">Театр</option>
+                  <option value="Выставки">Выставки</option>
+                  <option value="Мастер-классы">Мастер-классы</option>
+                  <option value="Кино">Кино</option>
+                  <option value="Маркеты">Маркеты</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="date-from">Дата от</label
+                ><input
+                  class="field__input form-control"
+                  id="date-from"
+                  name="date"
+                  type="date"
+                />
+              </div>
+              <div class="field">
+                <label for="price">Стоимость</label
+                ><select
+                  class="field__input form-select"
+                  id="price"
+                  name="price"
+                >
+                  <option value="">Любая</option>
+                  <option value="free">Бесплатно</option>
+                  <option value="1500">До 1 500 ₽</option>
+                  <option value="2500">До 2 500 ₽</option>
+                </select>
+              </div>
+              <button
+                class="button button--secondary btn btn-outline-primary"
+                type="reset"
+              >
+                Сбросить фильтры
+              </button>
+            </form>
+          </aside>
+          <section
+            class="catalog-results col-lg-9"
+            aria-labelledby="results-title"
+          >
+            <div class="results-bar">
+              <h2 id="results-title">Все события</h2>
+              <p id="result-count" role="status">6 событий</p>
+            </div>
+            <div class="card-grid row g-4">
+              <div class="col-12 col-sm-6 col-lg-4" data-card-wrapper>
+                <article
+                  class="event-card card h-100"
+                  data-event-card="blue-hour"
+                >
+                  <div class="event-card__cover">
+                    <span class="event-card__tag badge text-bg-light"
+                      >Популярное</span
+                    ><a
+                      href="product.html?event=blue-hour"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      ><img
+                        src="images/concert.jpg"
+                        alt=""
+                        width="800"
+                        height="520"
+                        loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="event-card__body card-body">
+                    <p class="event-card__meta">
+                      Концерты <span>·</span>
+                      <time datetime="2027-03-13">13 марта, 20:00</time>
+                    </p>
+                    <h3 class="event-card__title">
+                      <a href="product.html?event=blue-hour">Синий час</a>
+                    </h3>
+                    <p class="event-card__venue">Сцена «Контур»</p>
+                    <div class="event-card__actions">
+                      <span class="event-card__price">от 1 800 ₽</span
+                      ><button
+                        class="button button--secondary btn btn-outline-primary"
+                        type="button"
+                        data-open-order="blue-hour"
+                      >
+                        Записаться
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4" data-card-wrapper>
+                <article
+                  class="event-card card h-100"
+                  data-event-card="between-lines"
+                >
+                  <div class="event-card__cover">
+                    <a
+                      href="product.html?event=between-lines"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      ><img
+                        src="images/theater.jpg"
+                        alt=""
+                        width="800"
+                        height="520"
+                        loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="event-card__body card-body">
+                    <p class="event-card__meta">
+                      Театр <span>·</span>
+                      <time datetime="2027-03-19">19 марта, 19:30</time>
+                    </p>
+                    <h3 class="event-card__title">
+                      <a href="product.html?event=between-lines">Между строк</a>
+                    </h3>
+                    <p class="event-card__venue">Театр «Малая сцена»</p>
+                    <div class="event-card__actions">
+                      <span class="event-card__price">от 1 500 ₽</span
+                      ><button
+                        class="button button--secondary btn btn-outline-primary"
+                        type="button"
+                        data-open-order="between-lines"
+                      >
+                        Записаться
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4" data-card-wrapper>
+                <article
+                  class="event-card card h-100"
+                  data-event-card="new-optics"
+                >
+                  <div class="event-card__cover">
+                    <span class="event-card__tag badge text-bg-light"
+                      >Бесплатно</span
+                    ><a
+                      href="product.html?event=new-optics"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      ><img
+                        src="images/gallery.jpg"
+                        alt=""
+                        width="800"
+                        height="520"
+                        loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="event-card__body card-body">
+                    <p class="event-card__meta">
+                      Выставки <span>·</span>
+                      <time datetime="2027-03-20">20 марта, 12:00</time>
+                    </p>
+                    <h3 class="event-card__title">
+                      <a href="product.html?event=new-optics">Новая оптика</a>
+                    </h3>
+                    <p class="event-card__venue">Галерея «Слой»</p>
+                    <div class="event-card__actions">
+                      <span class="event-card__price">Бесплатно</span
+                      ><button
+                        class="button button--secondary btn btn-outline-primary"
+                        type="button"
+                        data-open-order="new-optics"
+                      >
+                        Записаться
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4" data-card-wrapper>
+                <article class="event-card card h-100" data-event-card="clay">
+                  <div class="event-card__cover">
+                    <a
+                      href="product.html?event=clay"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      ><img
+                        src="images/clay.jpg"
+                        alt=""
+                        width="800"
+                        height="520"
+                        loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="event-card__body card-body">
+                    <p class="event-card__meta">
+                      Мастер-классы <span>·</span>
+                      <time datetime="2027-03-21">21 марта, 14:00</time>
+                    </p>
+                    <h3 class="event-card__title">
+                      <a href="product.html?event=clay">Форма из глины</a>
+                    </h3>
+                    <p class="event-card__venue">Мастерская «Тепло»</p>
+                    <div class="event-card__actions">
+                      <span class="event-card__price">от 2 300 ₽</span
+                      ><button
+                        class="button button--secondary btn btn-outline-primary"
+                        type="button"
+                        data-open-order="clay"
+                      >
+                        Записаться
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4" data-card-wrapper>
+                <article class="event-card card h-100" data-event-card="film">
+                  <div class="event-card__cover">
+                    <a
+                      href="product.html?event=film"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      ><img
+                        src="images/film.jpg"
+                        alt=""
+                        width="800"
+                        height="520"
+                        loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="event-card__body card-body">
+                    <p class="event-card__meta">
+                      Кино <span>·</span>
+                      <time datetime="2027-03-26">26 марта, 20:30</time>
+                    </p>
+                    <h3 class="event-card__title">
+                      <a href="product.html?event=film">Кино после заката</a>
+                    </h3>
+                    <p class="event-card__venue">Кинозал «Кадр»</p>
+                    <div class="event-card__actions">
+                      <span class="event-card__price">от 750 ₽</span
+                      ><button
+                        class="button button--secondary btn btn-outline-primary"
+                        type="button"
+                        data-open-order="film"
+                      >
+                        Записаться
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4" data-card-wrapper>
+                <article class="event-card card h-100" data-event-card="market">
+                  <div class="event-card__cover">
+                    <span class="event-card__tag badge text-bg-light"
+                      >Бесплатно</span
+                    ><a
+                      href="product.html?event=market"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      ><img
+                        src="images/market.jpg"
+                        alt=""
+                        width="800"
+                        height="520"
+                        loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="event-card__body card-body">
+                    <p class="event-card__meta">
+                      Маркеты <span>·</span>
+                      <time datetime="2027-03-28">28 марта, 11:00</time>
+                    </p>
+                    <h3 class="event-card__title">
+                      <a href="product.html?event=market">Городской маркет</a>
+                    </h3>
+                    <p class="event-card__venue">Двор «Соседи»</p>
+                    <div class="event-card__actions">
+                      <span class="event-card__price">Бесплатно</span
+                      ><button
+                        class="button button--secondary btn btn-outline-primary"
+                        type="button"
+                        data-open-order="market"
+                      >
+                        Записаться
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <p class="empty-state alert alert-info" id="empty-state" hidden>
+              По этим фильтрам ничего не найдено. Измени условия или сбрось
+              фильтры.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div>
+          <a class="brand brand--footer" href="index.html"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          >
+          <p>Демонстрационная городская афиша</p>
+        </div>
+        <div class="site-footer__links">
+          <a href="catalog.html">Каталог</a><a href="contacts.html">Контакты</a>
+        </div>
+        <p class="site-footer__credit">Учебный проект<br />Мацейко А. В.</p>
+      </div>
+    </footer>
+    <a class="back-top" href="#top" aria-label="Наверх" title="Наверх">↑</a>
+    <div
+      class="modal fade"
+      id="order-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-4" id="modal-title">
+              Заявка на мероприятие
+            </h2>
+            <button
+              class="btn-close"
+              type="button"
+              data-bs-dismiss="modal"
+              aria-label="Закрыть"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="request-form" data-form="quick">
+              <div class="form-grid">
+                <div class="field field--wide">
+                  <label class="field__label form-label" for="quick-event"
+                    >Мероприятие</label
+                  ><select
+                    class="field__input form-select"
+                    id="quick-event"
+                    name="event"
+                    required
+                  >
+                    <option value="">Выберите мероприятие</option>
+                    <option value="blue-hour">Синий час</option>
+                    <option value="between-lines">Между строк</option>
+                    <option value="new-optics">Новая оптика</option>
+                    <option value="clay">Форма из глины</option>
+                    <option value="film">Кино после заката</option>
+                    <option value="market">Городской маркет</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-name"
+                    >Имя</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-name"
+                    name="name"
+                    type="text"
+                    autocomplete="given-name"
+                    maxlength="80"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-email"
+                    >Электронная почта</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    maxlength="120"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-phone"
+                    >Телефон</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    minlength="7"
+                    maxlength="25"
+                    placeholder="+7 900 000-00-00"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="quick-date"
+                    >Дата мероприятия</label
+                  ><input
+                    class="field__input form-control"
+                    id="quick-date"
+                    name="date"
+                    type="date"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="form-label" for="quick-tickets"
+                    >Количество билетов</label
+                  >
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      id="quick-tickets"
+                      name="tickets"
+                      type="number"
+                      min="1"
+                      max="8"
+                      value="1"
+                      required
+                    /><span class="input-group-text">шт.</span>
+                  </div>
+                </div>
+                <div class="field field--wide">
+                  <label class="field__label form-label" for="quick-comment"
+                    >Комментарий (необязательно)</label
+                  ><textarea
+                    class="field__input form-control"
+                    name="comment"
+                    id="quick-comment"
+                    maxlength="600"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="consent form-check">
+                <input
+                  class="consent__input form-check-input"
+                  type="checkbox"
+                  id="quick-consent"
+                  name="consent"
+                  required
+                /><label
+                  class="consent__label form-check-label"
+                  for="quick-consent"
+                  >Согласен на обработку данных в рамках демонстрации</label
+                >
+              </div>
+              <p class="request-form__note">
+                Демонстрационная форма. Данные остаются в браузере и не
+                отправляются.
+              </p>
+              <button class="button btn btn-primary" type="submit" disabled>
+                Проверить заявку
+              </button>
+              <p
+                class="request-form__status alert alert-success"
+                role="status"
+                tabindex="-1"
+                hidden
+              ></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

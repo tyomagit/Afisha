@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Сведения об учебном проекте, обратная связь и частые вопросы."
+    />
+    <meta name="theme-color" content="#f8f6f0" />
+    <title>Контакты · Вне дома</title>
+    <link rel="icon" href="images/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/events.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top" data-version="bootstrap">
+    <a class="skip-link" href="#main">К содержимому</a>
+    <header class="site-header">
+      <nav class="site-nav navbar navbar-expand-md" aria-label="Основное меню">
+        <div class="shell container">
+          <a
+            href="index.html"
+            class="brand navbar-brand"
+            aria-label="Вне дома — главная"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          ><button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main-nav"
+            aria-controls="main-nav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="main-nav" class="collapse navbar-collapse">
+            <div class="site-nav__links navbar-nav">
+              <a class="site-nav__link nav-link" href="index.html">Главная</a
+              ><a class="site-nav__link nav-link" href="catalog.html">Каталог</a
+              ><a class="site-nav__link nav-link" href="order.html">Заявка</a
+              ><a
+                class="site-nav__link nav-link"
+                href="contacts.html"
+                aria-current="page"
+                >Контакты</a
+              >
+            </div>
+          </div>
+          <span class="site-nav__city"
+            ><span aria-hidden="true">◎</span> Москва</span
+          >
+        </div>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="shell page">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li aria-current="page">Контакты</li>
+          </ol>
+        </nav>
+        <header class="page-heading">
+          <p class="kicker">Связь с проектом</p>
+          <h1>Контакты</h1>
+          <p>Вопросы о каталоге и предложения по работе сайта.</p>
+        </header>
+        <div class="contact-layout row g-4">
+          <section class="form-panel col-lg-7" aria-labelledby="contact-title">
+            <h2 id="contact-title">Обратная связь</h2>
+            <form class="request-form" data-form="contact">
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field__label form-label" for="contact-name"
+                    >Имя</label
+                  ><input
+                    class="field__input form-control"
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    autocomplete="given-name"
+                    maxlength="80"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label class="field__label form-label" for="contact-email"
+                    >Электронная почта</label
+                  ><input
+                    class="field__input form-control"
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    maxlength="120"
+                    required
+                  />
+                </div>
+                <div class="field field--wide">
+                  <label class="field__label form-label" for="contact-comment"
+                    >Сообщение</label
+                  ><textarea
+                    class="field__input form-control"
+                    name="comment"
+                    id="contact-comment"
+                    maxlength="600"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div class="consent form-check">
+                <input
+                  class="consent__input form-check-input"
+                  type="checkbox"
+                  id="contact-consent"
+                  name="consent"
+                  required
+                /><label
+                  class="consent__label form-check-label"
+                  for="contact-consent"
+                  >Согласен на обработку данных в рамках демонстрации</label
+                >
+              </div>
+              <p class="request-form__note">
+                Демонстрационная форма. Данные остаются в браузере и не
+                отправляются.
+              </p>
+              <button class="button btn btn-primary" type="submit" disabled>
+                Проверить сообщение
+              </button>
+              <p
+                class="request-form__status alert alert-success"
+                role="status"
+                tabindex="-1"
+                hidden
+              ></p>
+            </form>
+          </section>
+          <aside
+            class="contact-info col-lg-4"
+            aria-label="Контактная информация"
+          >
+            <h2>Об афише</h2>
+            <p>Город: Москва</p>
+            <p>Автор проекта: Мацейко А. В.</p>
+            <p>Канал связи в демонстрации — форма на этой странице.</p>
+          </aside>
+        </div>
+        <section class="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Частые вопросы</h2>
+          <div class="accordion" id="faq">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-0"
+                  aria-expanded="false"
+                  aria-controls="faq-0"
+                >
+                  Можно ли купить билет на сайте?
+                </button>
+              </h3>
+              <div
+                class="accordion-collapse collapse"
+                id="faq-0"
+                data-bs-parent="#faq"
+              >
+                <div class="accordion-body">
+                  Афиша демонстрирует сценарий заявки. Билеты на сайте не
+                  продаются.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-1"
+                  aria-expanded="false"
+                  aria-controls="faq-1"
+                >
+                  Где посмотреть цену и расписание?
+                </button>
+              </h3>
+              <div
+                class="accordion-collapse collapse"
+                id="faq-1"
+                data-bs-parent="#faq"
+              >
+                <div class="accordion-body">
+                  Открой карточку события в каталоге. Цена и расписание указаны
+                  на странице мероприятия.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-2"
+                  aria-expanded="false"
+                  aria-controls="faq-2"
+                >
+                  Как найти бесплатное мероприятие?
+                </button>
+              </h3>
+              <div
+                class="accordion-collapse collapse"
+                id="faq-2"
+                data-bs-parent="#faq"
+              >
+                <div class="accordion-body">
+                  Выбери «Бесплатно» в фильтре стоимости на странице каталога.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div>
+          <a class="brand brand--footer" href="index.html"
+            ><span class="brand__mark" aria-hidden="true"
+              ><svg
+                class="icon-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 18 18 6M7 6h11v11"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            вне дома<span class="brand__dot">.</span></a
+          >
+          <p>Демонстрационная городская афиша</p>
+        </div>
+        <div class="site-footer__links">
+          <a href="catalog.html">Каталог</a><a href="contacts.html">Контакты</a>
+        </div>
+        <p class="site-footer__credit">Учебный проект<br />Мацейко А. В.</p>
+      </div>
+    </footer>
+    <a class="back-top" href="#top" aria-label="Наверх" title="Наверх">↑</a>
+  </body>
+</html>
